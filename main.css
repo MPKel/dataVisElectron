@@ -67,6 +67,7 @@ div.tooltip {
 
 .terms-box {
   position: fixed;
+  display: none;
   bottom: 1%;
   right: 1%;
   width: 20%;

@@ -5,22 +5,22 @@ var d3 = require("d3")
 
 
   let emailData = [
-    { entry_id: "6829", title: "Mapping Experiences: It’s the Destination and the Journey", sendDate: 1531329455, engDate: "07/11/2018", fileName: "s6829.csv"},
-    {entry_id: "4812", title: "Sharing our Stories: Designing and Reviewing UX Portfolios", sendDate: 1531495771, engDate: "07/13/2018", fileName: "s4812.csv"},
-    {entry_id: "4997", title: "Measuring The Customer Experience Using Top Tasks", sendDate: 1531919432, engDate: "07/18/2018", fileName: "s4997.csv"},
-    {entry_id: "3303", title: "A User-centered Approach to Product Planning and Visioning", sendDate: 1531329455, engDate: "07/20/2018", fileName: "s3303.csv"},
-    {entry_id: "10715", title: "IA lense(for test purposes)", sendDate: 1536765928, engDate: "09/12/2018", fileName: "testText.tsv"},
-    {entry_id: "7566", title: "The Experience Is The Product", sendDate: 1540315821, engDate: "10/23/2018", fileName: "s7566.csv"},
-    {entry_id: "10824", title: "How to Avoid a Runaway Redesign(testing purposes)", sendDate: 1539882079, engDate: "10/18/2018", fileName: "runawayRedesign.csv"},
-    {entry_id: "8882", title: "Onboarding for Behavior Change", sendDate: 1539181239, engDate: "10/10/2018", fileName: "s8882.csv"},
-    {entry_id: "4697", title: "A Tour of Today’s Online Style Guides", sendDate: 1538786602, engDate: "10/05/2018", fileName: "s4697.csv"},
-    {entry_id: "5495", title: "Balancing Continuous Discovery and Delivery", sendDate: 1538386496, engDate: "10/01/2018", fileName: "s5495.csv"},
-    {entry_id: "5061", title: "Using Visual Models to Solve Big Design Problems", sendDate: 1538171900, engDate: "9/28/2018", fileName: "s5061.csv"},
-    {entry_id: "1439", title: "Orchestrating Experiences: Strategy & Design for Complex Product Ecosystems", sendDate: 1537171439, engDate: "9/17/2018", fileName: "s1439.csv"},
-    {entry_id: "99", title: "Give Your Users a Seat at the Table: The Characteristics of Effective Personas", sendDate: 1536944964, engDate: "9/14/2018", fileName: "s99.csv"},
-    {entry_id: "14", title: "Building Robust Personas in 30 Days or Less", sendDate: 1536570679, engDate: "9/10/2018", fileName: "s14.csv"},
-    {entry_id: "7561", title: "Collaborative Design Discovery: Four Essential Techniques", sendDate: 1536069272, engDate: "9/4/2018", fileName: "s7561.csv"},
-    {entry_id: "8706", title: "Finding The Narrative In Numbers: Making The Most of Metrics", sendDate: 1535737752, engDate: "8/31/2018", fileName: "s8706.csv"}
+    { entry_id: "6829", title: "Mapping Experiences: It’s the Destination and the Journey", sendDate: 1531329455, engDate: "07/11/2018"},
+    {entry_id: "4812", title: "Sharing our Stories: Designing and Reviewing UX Portfolios", sendDate: 1531495771, engDate: "07/13/2018"},
+    {entry_id: "4997", title: "Measuring The Customer Experience Using Top Tasks", sendDate: 1531919432, engDate: "07/18/2018"},
+    {entry_id: "3303", title: "A User-centered Approach to Product Planning and Visioning", sendDate: 1531329455, engDate: "07/20/2018"},
+    {entry_id: "10715", title: "IA lense(for test purposes)", sendDate: 1536765928, engDate: "09/12/2018"},
+    {entry_id: "7566", title: "The Experience Is The Product", sendDate: 1540315821, engDate: "10/23/2018"},
+    {entry_id: "10824", title: "How to Avoid a Runaway Redesign(testing purposes)", sendDate: 1539882079, engDate: "10/18/2018"},
+    {entry_id: "8882", title: "Onboarding for Behavior Change", sendDate: 1539181239, engDate: "10/10/2018"},
+    {entry_id: "4697", title: "A Tour of Today’s Online Style Guides", sendDate: 1538786602, engDate: "10/05/2018"},
+    {entry_id: "5495", title: "Balancing Continuous Discovery and Delivery", sendDate: 1538386496, engDate: "10/01/2018"},
+    {entry_id: "5061", title: "Using Visual Models to Solve Big Design Problems", sendDate: 1538171900, engDate: "9/28/2018"},
+    {entry_id: "1439", title: "Orchestrating Experiences: Strategy & Design for Complex Product Ecosystems", sendDate: 1537171439, engDate: "9/17/2018"},
+    {entry_id: "99", title: "Give Your Users a Seat at the Table: The Characteristics of Effective Personas", sendDate: 1536944964, engDate: "9/14/2018"},
+    {entry_id: "14", title: "Building Robust Personas in 30 Days or Less", sendDate: 1536570679, engDate: "9/10/2018"},
+    {entry_id: "7561", title: "Collaborative Design Discovery: Four Essential Techniques", sendDate: 1536069272, engDate: "9/4/2018"},
+    {entry_id: "8706", title: "Finding The Narrative In Numbers: Making The Most of Metrics", sendDate: 1535737752, engDate: "8/31/2018"}
   ];
 
 
@@ -217,126 +217,131 @@ function getStats() {
   $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + emailData[activeIndex].entry_id, function(data) {
     let dataOBJ = JSON.parse(data);
     console.log(dataOBJ[0].date);
+    console.log(dataOBJ.length + " --LENGTH");
 
-//      //container for input split by new lines
-//      holder = data.split("\n");
-//
-//
-//      // loop through each individual line of stats
-//      for(let i = 0; i < holder.length-1; i++) {
-//        let tempHolder = holder[i].split("\t");
-//
-//
-//
-//        //if watch_type is "endat##" remove 'endat' and turn the remaining number-string into an int
-//        if(tempHolder[3].startsWith("endat")) {
-//          tempHolder[3] = parseInt(tempHolder[3].replace("endat", ""));
-//        }
-//
-//          //if the watchDate was BEFORE the SendDate AND the sendDate minus the watchDate is less than or equal to the difference between today and the sendDate
-//          if(( new Date(new Date(tempHolder[6] * 1000).toDateString()) <  new Date(new Date(sendDate * 1000).toDateString()) ) && ( dateDiffInDays( new Date(sendDate * 1000), new Date(tempHolder[6] * 1000) ) <= numberDays )) {
-//              if( (tempHolder[3] === "half") || (tempHolder[3] === "finished") || (tempHolder[3] >= 50) ){
-//                priorWatchesHalf.add(tempHolder[1]);
-//
-//                let halfIndex = userArrayHalfs.indexOf(tempHolder[1]);
-//                  if(halfIndex == -1) {
-//                    let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                    drawArray[liveIndex].halfTally += 1;
-//                    userArrayHalfs.push(tempHolder[1]);
-//                  }
-//
-//
-//
-//              }
-//              if( tempHolder[3] != "start" && tempHolder[3] != "onwatch" &&  typeof(tempHolder[3]) === "string"){
-//                  priorWatchesTotal.add(tempHolder[1]);
-//
-//
-//                  let watchesIndex = userArrayWatches.indexOf(tempHolder[1]);
-//                    if(watchesIndex == -1) {
-//                      let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                      drawArray[liveIndex].watchTally += 1;
-//                      userArrayWatches.push(tempHolder[1]);
-//                   }
-//
-//
-//                }
-//              else if (tempHolder[3] > 0) {
-//                priorWatchesTotal.add(tempHolder[1]);
-//                let watchesIndex = userArrayWatches.indexOf(tempHolder[1]);
-//                  if(watchesIndex == -1) {
-//                    let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                    drawArray[liveIndex].watchTally += 1;
-//                    userArrayWatches.push(tempHolder[1]);
-//                 }
-//
-//
-//
-//
-//              }
-//
-//          }
-//          //if the watchDate was AFTER the SendDate AND the watchDate minus the sendDate is less than or equal to the difference between today and the sendDate
-//          else if( ( new Date(new Date(tempHolder[6] * 1000).toDateString()) >= new Date(new Date(sendDate * 1000).toDateString()) ) && (dateDiffInDays( new Date(tempHolder[6] * 1000), new Date(sendDate * 1000)) <= numberDays))   {
-//
-//              if( (tempHolder[3] === "half") || (tempHolder[3] === "finished") || (tempHolder[3] >= 50) ){
-//                sinceWatchesHalf.add(tempHolder[1]);
-//
-//                let halfIndex = userArrayHalfs.indexOf(tempHolder[1]);
-//                  if(halfIndex == -1) {
-//                    let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                    drawArray[liveIndex].halfTally += 1;
-//                    userArrayHalfs.push(tempHolder[1]);
-//                  }
-//
-//
-//              }
-//
-//              if( tempHolder[3] != "start" && tempHolder[3] != "onwatch" &&  typeof(tempHolder[3]) === "string"){
-//                  sinceWatchesTotal.add(tempHolder[1]);
-//
-//                  let watchesIndex = userArrayWatches.indexOf(tempHolder[1]);
-//                    if(watchesIndex == -1) {
-//                      let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                      drawArray[liveIndex].watchTally += 1;
-//                      userArrayWatches.push(tempHolder[1]);
-//                   }
-//
-//
-//
-//              }
-//             else if (tempHolder[3] > 0) {
-//               sinceWatchesTotal.add(tempHolder[1]);
-//
-//               let watchesIndex = userArrayWatches.indexOf(tempHolder[1]);
-//                 if(watchesIndex == -1) {
-//                   let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(tempHolder[6] * 1000).toDateString());
-//                   drawArray[liveIndex].watchTally += 1;
-//                   userArrayWatches.push(tempHolder[1]);
-//                }
-//
-//
-//             }
-//
-//         } //end of after-send-date check
-//      }
-//     //end tallying for-loop
-//
-//
-//
-//
-//
-//
-// //
-// drawArray.shift();
-//
-//
-//
-//
-//      //Update numbers on the front end
-//      setPageView();
-//      d3.select("#uniqueSVG").empty();
-//     newDraw(sendDate);
+     //container for input split by new lines
+     // holder = data.split("\n");
+
+
+     // loop through each individual line of stats
+     for(let i = 0; i < dataOBJ.length-1; i++) {
+       // let tempHolder = holder[i].split("\t");
+
+
+
+       //if watch_type is "endat##" remove 'endat' and turn the remaining number-string into an int
+       if(dataOBJ[i].watch_type.startsWith("endat")) {
+         dataOBJ[i].watch_type = parseInt(dataOBJ[i].watch_type.replace("endat", ""));
+       }
+
+         //if the watchDate was BEFORE the SendDate AND the sendDate minus the watchDate is less than or equal to the difference between today and the sendDate
+         if(( new Date(new Date(dataOBJ[i].date * 1000).toDateString()) <  new Date(new Date(sendDate * 1000).toDateString()) ) && ( dateDiffInDays( new Date(sendDate * 1000), new Date(dataOBJ[i].date * 1000) ) <= numberDays )) {
+             if( (dataOBJ[i].watch_type === "half") || (dataOBJ[i].watch_type === "finished") || (dataOBJ[i].watch_type >= 50) ){
+               priorWatchesHalf.add(dataOBJ[i].member_id);
+
+               let halfIndex = userArrayHalfs.indexOf(dataOBJ[i].member_id);
+                 if(halfIndex == -1) {
+                   let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                   drawArray[liveIndex].halfTally += 1;
+                   userArrayHalfs.push(dataOBJ[i].member_id);
+                 }
+
+
+
+             }
+             if( dataOBJ[i].watch_type != "start" && dataOBJ[i].watch_type != "onwatch" &&  typeof(dataOBJ[i].watch_type) === "string"){
+                 priorWatchesTotal.add(dataOBJ[i].member_id);
+
+
+                 let watchesIndex = userArrayWatches.indexOf(dataOBJ[i].member_id);
+                   if(watchesIndex == -1) {
+                     let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                     drawArray[liveIndex].watchTally += 1;
+                     userArrayWatches.push(dataOBJ[i].member_id);
+                  }
+
+
+               }
+             else if (dataOBJ[i].watch_type > 0) {
+               priorWatchesTotal.add(dataOBJ[i].member_id);
+               let watchesIndex = userArrayWatches.indexOf(dataOBJ[i].member_id);
+                 if(watchesIndex == -1) {
+                   let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                   drawArray[liveIndex].watchTally += 1;
+                   userArrayWatches.push(dataOBJ[i].member_id);
+                }
+
+
+
+
+             }
+
+         }
+         //if the watchDate was AFTER the SendDate AND the watchDate minus the sendDate is less than or equal to the difference between today and the sendDate
+         else if( ( new Date(new Date(dataOBJ[i].date * 1000).toDateString()) >= new Date(new Date(sendDate * 1000).toDateString()) ) && (dateDiffInDays( new Date(dataOBJ[i].date * 1000), new Date(sendDate * 1000)) <= numberDays))   {
+
+             if( (dataOBJ[i].watch_type === "half") || (dataOBJ[i].watch_type === "finished") || (dataOBJ[i].watch_type >= 50) ){
+               sinceWatchesHalf.add(dataOBJ[i].member_id);
+
+               let halfIndex = userArrayHalfs.indexOf(dataOBJ[i].member_id);
+                 if(halfIndex == -1) {
+                   let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                   drawArray[liveIndex].halfTally += 1;
+                   userArrayHalfs.push(dataOBJ[i].member_id);
+                 }
+
+
+             }
+
+             if( dataOBJ[i].watch_type != "start" && dataOBJ[i].watch_type != "onwatch" &&  typeof(dataOBJ[i].watch_type) === "string"){
+                 sinceWatchesTotal.add(dataOBJ[i].member_id);
+
+                 let watchesIndex = userArrayWatches.indexOf(dataOBJ[i].member_id);
+                   if(watchesIndex == -1) {
+                     let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                     drawArray[liveIndex].watchTally += 1;
+                     userArrayWatches.push(dataOBJ[i].member_id);
+                  }
+
+
+
+             }
+            else if (dataOBJ[i].watch_type > 0) {
+              sinceWatchesTotal.add(dataOBJ[i].member_id);
+
+              let watchesIndex = userArrayWatches.indexOf(dataOBJ[i].member_id);
+                if(watchesIndex == -1) {
+                  let liveIndex = drawArray.map(function(e) { return e.date; }).indexOf(new Date(dataOBJ[i].date * 1000).toDateString());
+                  drawArray[liveIndex].watchTally += 1;
+                  userArrayWatches.push(dataOBJ[i].member_id);
+               }
+
+
+            }
+
+        } //end of after-send-date check
+     }
+    //end tallying for-loop
+
+
+
+
+
+
+//remove current drawArray[0] which is a blank space holder/template entry
+drawArray.shift();
+
+
+
+
+     //Update numbers on the front end
+     setPageView();
+
+     //clear SVG for new drawing
+     d3.select("#uniqueSVG").empty();
+
+     //call d3 drawing function
+    newDraw(sendDate);
 
 
 
@@ -361,7 +366,7 @@ function setActiveIndex(num) {
 
 
 
-//alt draw SECTION
+//d3 draw SECTION
 function newDraw(incdate) {
   d3.select("#uniqueSVG").selectAll("*").remove();
   var margin = {top: 40, right: 30, bottom: 50, left: 30},
@@ -373,10 +378,7 @@ function newDraw(incdate) {
       .range([0, width]);
 
 
-    //   var x = d3.scaleTime()
-    // .domain(d3.extent(drawData, function(d) { return d.date; }))
-    // .rangeRound([margin.left, width - margin.right]);
-  //
+
   var y = d3.scaleLinear()
       .range([height, 0]);
 
@@ -385,12 +387,7 @@ function newDraw(incdate) {
   var yAxis = d3.axisLeft(y)
       .ticks(5);
 
-  // var tip = d3.tip()
-  //   .attr('class', 'd3-tip')
-  //   .offset([-10, 0])
-  //   .html(function(d) {
-  //     return "<strong>Tally:</strong> <span style='color:red'>" + d.tally + "</span>";
-  //   });
+
 
   var svg = d3.select("svg")
       .attr("width", width + margin.left + margin.right)
@@ -398,13 +395,13 @@ function newDraw(incdate) {
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  // svg.call(tip);
+
 
 
 
   x.domain([d3.min(drawArray, function(d) { return new Date(d.date); }), d3.max(drawArray, function(d) { return new Date(d.date); })]);
   y.domain([0, d3.max(drawArray, function(d) { return d.watchTally; })]);
-  //
+
 
 
 
@@ -445,7 +442,7 @@ function newDraw(incdate) {
       .attr("class", "watches1")
     .attr("x", function(d) {return x( new Date(type(d.date)) ) }  )
     .attr("shape-rendering", "auto")
-    .attr( "width",  (width/drawArray.length + 15))
+    .attr( "width",  (width/drawArray.length + 10))
     // .attr("width", function(d) { return d.bandwidth()  })
     .attr('y', function(d) { return y(d.watchTally); } )
     .attr('height', function(d,i){ return height - y(d.watchTally); })
@@ -547,8 +544,6 @@ function newDraw(incdate) {
 
 
 
-    // .on('mouseover', tip.show)
-    // .on('mouseout', tip.hide);
 
 
   function type(d) {
