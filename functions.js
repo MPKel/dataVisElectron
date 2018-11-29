@@ -3,6 +3,17 @@ $(document).ready(function(){
 var d3 = require("d3")
 
 
+let overrideDate, overrideDay, overrideMonth, overrideYear, overrideEngDate, overrideId;
+
+
+
+$("#submitDate").click( function () {
+  overrideDate = document.getElementById('overDate').value;
+  overrideId = document.getElementById('overId').value;
+  alert(overrideDate + "yehoo" + overrideId);
+});
+
+
 
   let emailData = [
     { entry_id: "6829", title: "Mapping Experiences: It’s the Destination and the Journey", sendDate: 1531329455, engDate: "07/11/2018"},

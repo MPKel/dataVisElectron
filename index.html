@@ -32,16 +32,27 @@
             </ul>
           </div>
 
-              <fieldset>
+              <div>
                   <legend>Select what to graph</legend>
                   <input type="radio" name="graphWhat" value="1" checked >Watches</input>
                   <input type="radio" name="graphWhat" value="2"> Over Half Watches </input>
                   <input type="radio" name="graphWhat" value="3"> Graph Both </input>
 
-              </fieldset>
+              </div>
 
 
       </div>
+
+
+      <fieldset>
+          <legend>Override Mode</legend>
+          Email Id: <br>
+          <input type="number" id="overId"></input><br>
+          Campaign SendDate:<br>
+          <input type="date" id="overDate" name="donny"> </input>
+          <input type="button" id="submitDate" value="submit">
+
+      </fieldset>
 
       <svg id="uniqueSVG"></svg>
 
