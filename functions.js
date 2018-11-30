@@ -15,9 +15,10 @@ $("#submitDate").click( function () {
   overrideDateUTC_usable = overrideDateUTC / 1000;
 
   overrideEngDate = new Date(overrideDateUTC);
-  alert(overrideDate + "yehoo" + overrideDateUTC);
-
   alert(overrideEngDate);
+
+  d3.select("#uniqueSVG").empty();
+  getStats();
 });
 
 
@@ -72,7 +73,7 @@ let bothBool = false;
                watchesBool = true;
                halfBool = false;
                bothBool = false;
-               if(activeIndex){
+               if(overrideDate){
                  d3.select("#uniqueSVG").empty();
                  getStats();
              }
@@ -82,14 +83,14 @@ let bothBool = false;
              halfBool = true;
              watchesBool = false;
              bothBool = false;
-            if(activeIndex){
+            if(overrideDate){
                d3.select("#uniqueSVG").empty();
                getStats();
             }
            }
            else {
              bothBool = true;
-              if(activeIndex){
+              if(overrideDate){
              d3.select("#uniqueSVG").empty();
              getStats();
            }
@@ -120,7 +121,7 @@ let bothBool = false;
 
 let drawArray = [
       {
-          date: "",
+          date: 0,
           watchTally: 0,
           halfTally: 0
       }
@@ -177,8 +178,9 @@ function dateDiffInDays(a, b) {
 
 function getStats() {
   let today = Math.floor(Date.now()/1000);
-  let sendDate = emailData[activeIndex].sendDate;
-
+  // let sendDate = emailData[activeIndex].sendDate;
+  let sendDate = overrideDateUTC_usable;
+console.log("SENDATE SENDATE: " +sendDate);
   let dateDiff = dateDiffInDays( new Date(Date.now()), new Date(sendDate * 1000) );
   console.log(dateDiff);
 
@@ -187,7 +189,7 @@ function getStats() {
   //set max number of days to 6 weeks
   let numberDays = dateDiff <= 42 ? dateDiff : 42;
   drawArray = buildDateArray((sendDate * 1000), numberDays );
-  // console.log(drawArray);
+  console.log(drawArray);
 
 
   //arrays to hold userIDs so each user can only watch a video once, one array for each watch type
@@ -209,8 +211,10 @@ function getStats() {
 
   function setPageView() {
 
-    $("#email__title").html(emailData[activeIndex].title);
-    $("#email__date").html(emailData[activeIndex].engDate);
+    // $("#email__title").html(emailData[activeIndex].title);
+    let tempDate = overrideEngDate.toUTCString().split(' ', 4).join(' ');;
+    $("#email__date").html(tempDate);
+
     $(".length-of-time").html(numberDays);
 
      $("#prior-watches").html(priorWatchesTotal.size);
@@ -231,8 +235,8 @@ function getStats() {
 
 
   //Read data from text file
-  // $.get(emailData[activeIndex].fileName, function(data) {
-  $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + emailData[activeIndex].entry_id, function(data) {
+  // $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + emailData[activeIndex].entry_id, function(data) {
+  $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + overrideId, function(data) {
     let dataOBJ = JSON.parse(data);
     console.log(dataOBJ[0].date);
     console.log(dataOBJ.length + " --LENGTH");
