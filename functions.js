@@ -3,14 +3,21 @@ $(document).ready(function(){
 var d3 = require("d3")
 
 
-let overrideDate, overrideDay, overrideMonth, overrideYear, overrideEngDate, overrideId;
+let overrideDate, overrideDateUTC, overrideDateUTC_usable, overrideEngDate, overrideId;
 
 
 
 $("#submitDate").click( function () {
   overrideDate = document.getElementById('overDate').value;
   overrideId = document.getElementById('overId').value;
-  alert(overrideDate + "yehoo" + overrideId);
+  let holder = overrideDate.split('-');
+  overrideDateUTC = Date.UTC(holder[0], holder[1]-1, holder[2]);
+  overrideDateUTC_usable = overrideDateUTC / 1000;
+
+  overrideEngDate = new Date(overrideDateUTC);
+  alert(overrideDate + "yehoo" + overrideDateUTC);
+
+  alert(overrideEngDate);
 });
 
 
