@@ -1,0 +1,12 @@
+version: 0.0.1
+files:
+  - url: SOTD_Visualization-0.0.1-mac.zip
+    sha512: XMKzzRpdOy8790EWi/PG+V5/LmJLfalsOW0Xumob1yLqKBeKNaYaPOQM4ZRbuiguQ4cySo2gjKmMEDmNYGd2Gw==
+    size: 49536199
+    blockMapSize: 52690
+  - url: SOTD_Visualization-0.0.1.dmg
+    sha512: x929Yc/f3RL4Mu8opapoqFn5Vm3XtBxAD3x8ZBHvgoAnauSVQ90fwkoUh0pxdTlQlXZNqEp76OTr6RjATHkOOw==
+    size: 51297457
+path: SOTD_Visualization-0.0.1-mac.zip
+sha512: XMKzzRpdOy8790EWi/PG+V5/LmJLfalsOW0Xumob1yLqKBeKNaYaPOQM4ZRbuiguQ4cySo2gjKmMEDmNYGd2Gw==
+releaseDate: '2018-11-28T23:07:03.085Z'
