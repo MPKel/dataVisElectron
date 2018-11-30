@@ -11,7 +11,7 @@ $("#submitDate").click( function () {
   overrideDate = document.getElementById('overDate').value;
   overrideId = document.getElementById('overId').value;
   let holder = overrideDate.split('-');
-  overrideDateUTC = Date.UTC(holder[0], holder[1]-1, holder[2]);
+  overrideDateUTC = new Date(holder[0], holder[1]-1, holder[2]);
   overrideDateUTC_usable = overrideDateUTC / 1000;
 
   overrideEngDate = new Date(overrideDateUTC);
@@ -223,19 +223,11 @@ console.log("SENDATE SENDATE: " +sendDate);
      $("#since-watches").html(sinceWatchesTotal.size);
      $("#since-half").html(sinceWatchesHalf.size);
 
-
-  //    for (let item of sinceWatchesTotal) {
-  //      console.log(item);
-  //      // expected output: 42
-  //      // expected output: 13
-  //    }
-  //
   }
 
 
 
   //Read data from text file
-  // $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + emailData[activeIndex].entry_id, function(data) {
   $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + overrideId, function(data) {
     let dataOBJ = JSON.parse(data);
     console.log(dataOBJ[0].date);
