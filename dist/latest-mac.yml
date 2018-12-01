@@ -1,12 +1,12 @@
-version: 0.0.2
+version: 0.0.3
 files:
-  - url: SOTD_Visualization-0.0.2-mac.zip
-    sha512: ycXkjU4SnNRAi1DU9j72RHX1pdxSLABPOu5IaLVx4aKD1+0F0y/37yYp6mtYVZNTcm0k9vd/JUGlxQjMIEfFWQ==
-    size: 49536264
-    blockMapSize: 52680
-  - url: SOTD_Visualization-0.0.2.dmg
-    sha512: +AemBn7s2WWtpP/R/V3xnKjzzJL4f/QMGRgnhduM2VXDYe95mrWcT6/TbKXXNbTjqqPWaI/ry+rb/ylwO0IWNw==
-    size: 51298957
-path: SOTD_Visualization-0.0.2-mac.zip
-sha512: ycXkjU4SnNRAi1DU9j72RHX1pdxSLABPOu5IaLVx4aKD1+0F0y/37yYp6mtYVZNTcm0k9vd/JUGlxQjMIEfFWQ==
-releaseDate: '2018-11-30T22:01:55.872Z'
+  - url: SOTD_Visualization-0.0.3-mac.zip
+    sha512: JdJE0d2zsT7m+nup3fBO1Nu1U7pQE3Amhcjfe/7gD76UTEXHrZt+v7lV2IO+8ATGrC4+Ji6DQQCJHletoDHq7g==
+    size: 49534803
+    blockMapSize: 52706
+  - url: SOTD_Visualization-0.0.3.dmg
+    sha512: SEsLrAZkJ4pJ/G7Vd7C58MdBfldKwf0Fmzf0zoR9Bg/VDrdgmEJU2y+CwEUAZD2MwpZvWS8mY+rlPdMBy3cEcg==
+    size: 51295913
+path: SOTD_Visualization-0.0.3-mac.zip
+sha512: JdJE0d2zsT7m+nup3fBO1Nu1U7pQE3Amhcjfe/7gD76UTEXHrZt+v7lV2IO+8ATGrC4+Ji6DQQCJHletoDHq7g==
+releaseDate: '2018-12-01T06:33:29.221Z'

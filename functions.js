@@ -34,26 +34,6 @@ $("#submitDate").click( function () {
 });
 
 
-  //
-  // let emailData = [
-  //   { entry_id: "6829", title: "Mapping Experiences: It’s the Destination and the Journey", sendDate: 1531329455, engDate: "07/11/2018"},
-  //   {entry_id: "4812", title: "Sharing our Stories: Designing and Reviewing UX Portfolios", sendDate: 1531495771, engDate: "07/13/2018"},
-  //   {entry_id: "4997", title: "Measuring The Customer Experience Using Top Tasks", sendDate: 1531919432, engDate: "07/18/2018"},
-  //   {entry_id: "3303", title: "A User-centered Approach to Product Planning and Visioning", sendDate: 1531329455, engDate: "07/20/2018"},
-  //   {entry_id: "10715", title: "IA lense(for test purposes)", sendDate: 1536765928, engDate: "09/12/2018"},
-  //   {entry_id: "7566", title: "The Experience Is The Product", sendDate: 1540315821, engDate: "10/23/2018"},
-  //   {entry_id: "10824", title: "How to Avoid a Runaway Redesign(testing purposes)", sendDate: 1539882079, engDate: "10/18/2018"},
-  //   {entry_id: "8882", title: "Onboarding for Behavior Change", sendDate: 1539181239, engDate: "10/10/2018"},
-  //   {entry_id: "4697", title: "A Tour of Today’s Online Style Guides", sendDate: 1538786602, engDate: "10/05/2018"},
-  //   {entry_id: "5495", title: "Balancing Continuous Discovery and Delivery", sendDate: 1538386496, engDate: "10/01/2018"},
-  //   {entry_id: "5061", title: "Using Visual Models to Solve Big Design Problems", sendDate: 1538171900, engDate: "9/28/2018"},
-  //   {entry_id: "1439", title: "Orchestrating Experiences: Strategy & Design for Complex Product Ecosystems", sendDate: 1537171439, engDate: "9/17/2018"},
-  //   {entry_id: "99", title: "Give Your Users a Seat at the Table: The Characteristics of Effective Personas", sendDate: 1536944964, engDate: "9/14/2018"},
-  //   {entry_id: "14", title: "Building Robust Personas in 30 Days or Less", sendDate: 1536570679, engDate: "9/10/2018"},
-  //   {entry_id: "7561", title: "Collaborative Design Discovery: Four Essential Techniques", sendDate: 1536069272, engDate: "9/4/2018"},
-  //   {entry_id: "8706", title: "Finding The Narrative In Numbers: Making The Most of Metrics", sendDate: 1535737752, engDate: "8/31/2018"}
-  // ];
-
 
   $('nav li ul').hide().removeClass('fallback');
 $('nav li').hover(
@@ -449,9 +429,7 @@ function newDraw(incdate) {
     .data(drawArray).enter()
     .append("g")
     .attr("class","bar");
-    // .attr("transform", function(d){
-    //   return "translate("+xTimeScale(d.date)+",0)"
-    // });
+
 
   if(watchesBool === true || bothBool === true) {
 
@@ -460,11 +438,8 @@ function newDraw(incdate) {
     .attr("x", function(d) {return x( new Date(type(d.date)) ) }  )
     .attr("shape-rendering", "auto")
     .attr( "width",  (width/drawArray.length + 10))
-    // .attr("width", function(d) { return d.bandwidth()  })
     .attr('y', function(d) { return y(d.watchTally); } )
     .attr('height', function(d,i){ return height - y(d.watchTally); })
-    // .attr("y", function(d) { return y(d.watchTally) + y(d.watchTally) - height;})
-    // .attr("height", function(d) { return height - y(d.watchTally); })
     .attr("style", "outline: thin solid black;")
     .attr("fill", function(d) {
       if( new Date(type(d.date)).getMonth() === new Date(incdate * 1000).getMonth() ) {
@@ -506,11 +481,8 @@ function newDraw(incdate) {
          .attr("x", function(d) {return x( new Date(type(d.date)) ) }  )
          .attr("shape-rendering", "auto")
          .attr( "width",  (width/drawArray.length))
-         // .attr("width", function(d) { return d.bandwidth()  })
          .attr('y', function(d) { return y(d.halfTally); } )
          .attr('height', function(d,i){ return height - y(d.halfTally); })
-         // .attr("y", function(d) { return y(d.watchTally) + y(d.watchTally) - height;})
-         // .attr("height", function(d) { return height - y(d.watchTally); })
          .attr("style", "outline: 2px solid white;")
          .attr("fill", function(d) {
            if( new Date(type(d.date)).getMonth() === new Date(incdate * 1000).getMonth() ) {
@@ -550,36 +522,11 @@ function newDraw(incdate) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   function type(d) {
     d.date = +d.date;
     return d;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

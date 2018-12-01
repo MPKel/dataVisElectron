@@ -1,6 +1,6 @@
 {
   "name": "SOTD_Visualization",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An app to determine effectiveness of SOTD emails",
   "main": "main.js",
   "scripts": {
