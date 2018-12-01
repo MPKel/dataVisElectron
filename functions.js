@@ -5,6 +5,31 @@ var d3 = require("d3")
 
 let overrideDate, overrideDateUTC, overrideDateUTC_usable, overrideEngDate, overrideId;
 
+$.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=vl", function(data) {
+  let videosOBJ = JSON.parse(data);
+  console.log(videosOBJ.videos.length);
+   for(let i=0; i < videosOBJ.videos.length; i++ ) {
+     console.log(videosOBJ.videos[i].vs_title);
+   }
+  // videosOBJ.videos.forEach(console.log(videosOBJ.videos.vs_title));
+  // var items = [];
+  // $.each( videosOBJ.videos, function( key, val ) {
+  //   items.push( "<li id='" + key + "'>" + val + "</li>" );
+  // });
+  //
+  // $( "<ul/>", {
+  //   "class": "my-new-list",
+  //   html: items.join( "" )
+  // }).appendTo( "body" );
+
+ }, "text");
+
+
+ // $.getJSON("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=vl", function( data ) {
+ //   alert(data);
+ //
+ //
+ // });
 
 
 $("#submitDate").click( function () {
@@ -13,6 +38,8 @@ $("#submitDate").click( function () {
   let holder = overrideDate.split('-');
   overrideDateUTC = new Date(holder[0], holder[1]-1, holder[2]);
   overrideDateUTC_usable = overrideDateUTC / 1000;
+
+
 
   overrideEngDate = new Date(overrideDateUTC);
 
