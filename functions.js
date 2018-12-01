@@ -7,34 +7,20 @@ let overrideDate, overrideDateUTC, overrideDateUTC_usable, overrideEngDate, over
 
 $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=vl", function(data) {
   let videosOBJ = JSON.parse(data);
-  console.log(videosOBJ.videos.length);
    for(let i=0; i < videosOBJ.videos.length; i++ ) {
-     console.log(videosOBJ.videos[i].vs_title);
+
+     $("#vsSelection").append(`<option value=${videosOBJ.videos[i].entry_id}>${videosOBJ.videos[i].vs_title} -- ${videosOBJ.videos[i].instructor_first_name} ${videosOBJ.videos[i].instructor_last_name}</option>`)
+
    }
-  // videosOBJ.videos.forEach(console.log(videosOBJ.videos.vs_title));
-  // var items = [];
-  // $.each( videosOBJ.videos, function( key, val ) {
-  //   items.push( "<li id='" + key + "'>" + val + "</li>" );
-  // });
-  //
-  // $( "<ul/>", {
-  //   "class": "my-new-list",
-  //   html: items.join( "" )
-  // }).appendTo( "body" );
+
 
  }, "text");
 
 
- // $.getJSON("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=vl", function( data ) {
- //   alert(data);
- //
- //
- // });
-
 
 $("#submitDate").click( function () {
   overrideDate = document.getElementById('overDate').value;
-  overrideId = document.getElementById('overId').value;
+  overrideId = document.getElementById('vsSelection').value;
   let holder = overrideDate.split('-');
   overrideDateUTC = new Date(holder[0], holder[1]-1, holder[2]);
   overrideDateUTC_usable = overrideDateUTC / 1000;
@@ -206,16 +192,12 @@ function getStats() {
   let today = Math.floor(Date.now()/1000);
   // let sendDate = emailData[activeIndex].sendDate;
   let sendDate = overrideDateUTC_usable;
-console.log("SENDATE SENDATE: " +sendDate);
   let dateDiff = dateDiffInDays( new Date(Date.now()), new Date(sendDate * 1000) );
-  console.log(dateDiff);
-
 
 
   //set max number of days to 6 weeks
   let numberDays = dateDiff <= 42 ? dateDiff : 42;
   drawArray = buildDateArray((sendDate * 1000), numberDays );
-  console.log(drawArray);
 
 
   //arrays to hold userIDs so each user can only watch a video once, one array for each watch type
@@ -237,7 +219,6 @@ console.log("SENDATE SENDATE: " +sendDate);
 
   function setPageView() {
 
-    // $("#email__title").html(emailData[activeIndex].title);
     let tempDate = overrideEngDate.toUTCString().split(' ', 4).join(' ');;
     $("#email__date").html(tempDate);
 
@@ -256,11 +237,7 @@ console.log("SENDATE SENDATE: " +sendDate);
   //Read data from text file
   $.get("https://aycl.uie.com/?ACT=129&k=cbg8tj5bmv1bk3rc&a=watch&entry_id=" + overrideId, function(data) {
     let dataOBJ = JSON.parse(data);
-    console.log(dataOBJ[0].date);
-    console.log(dataOBJ.length + " --LENGTH");
 
-     //container for input split by new lines
-     // holder = data.split("\n");
 
 
      // loop through each individual line of stats

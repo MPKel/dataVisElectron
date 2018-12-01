@@ -10,9 +10,7 @@
 
 
       <div class="stat-box">
-          <h2><span id="email__title">Title Placeholder</span></h2>
-
-          <div class="stat-container prior">
+            <div class="stat-container prior">
             <p><span class="length-of-time">X</span> days <strong>prior</strong> </p>
             <ul>
               <li><span id="prior-watches">X</span> watches</li>
@@ -22,8 +20,6 @@
 
           <h3 class="date_line">Sent: <span id="email__date">date Placeholder</span></h3>
 
-          <!-- <input style="display:inline-block;" type="checkbox" id="isHalfSelected">Show OverHalfs</input> -->
-
           <div class="stat-container since">
             <p><span class="length-of-time">X</span> days <strong>since</strong> </p>
             <ul>
@@ -32,89 +28,37 @@
             </ul>
           </div>
 
-              <div>
-                  <legend>Select what to graph</legend>
-                  <input type="radio" name="graphWhat" value="1" checked >Watches</input>
-                  <input type="radio" name="graphWhat" value="2"> Over Half Watches </input>
-                  <input type="radio" name="graphWhat" value="3"> Graph Both </input>
+          <div>
+              <legend>Select what to graph</legend>
+              <input type="radio" name="graphWhat" value="1" checked >Watches</input>
+              <input type="radio" name="graphWhat" value="2"> Over Half Watches </input>
+              <input type="radio" name="graphWhat" value="3"> Graph Both </input>
 
-              </div>
-
-
+          </div>
       </div>
 
 
       <fieldset>
-          <legend>Override Mode</legend>
-          Email Id: <br>
-          <input type="number" id="overId"></input><br>
-          Campaign SendDate:<br>
-          <input type="date" id="overDate" name="donny"> </input>
+          <legend>Input Selections</legend>
+          <h3>Select a Virtual Seminar:</h3>
+          <select id="vsSelection">
+          </select><br>
+          <h3>Campaign SendDate:</h3>
+          <input type="date" id="overDate" name="pickDate"> </input>
           <input type="button" id="submitDate" value="submit">
 
       </fieldset>
 
       <svg id="uniqueSVG"></svg>
 
-      <!-- <nav class="emailChoices">
-      <ul>
-        <li>
-          <button>Please Select an Email to graph</button>
-          <ul class="fallback">
-            <li><button class="select_button" value="7566">(10/23/18) - The Experience Is The Product</button></li>
-            <li><button class="select_button" value="8882">(10/11/18) - Onboarding for Behavior Change</button></li>
-            <li><button class="select_button" value="4697">(10/5/18) - A Tour of Today’s Online Style Guides</button></li>
-            <li><button class="select_button" value="5495">(10/1/18) - Balancing Continuous Discovery and Delivery</button></li>
-            <li><button class="select_button" value="5061">(9/28/18) - Using Visual Models to Solve Big Design Problems</button></li>
-            <li><button class="select_button" value="1439">(9/17/18) - Orchestrating Experiences: Strategy & Design for Complex Product Ecosystems</button></li>
-            <li><button class="select_button" value="99">(9/14/18) - Give Your Users a Seat at the Table: The Characteristics of Effective Personas</button></li>
-            <li><button class="select_button" value="14">(9/10/18) - Building Robust Personas in 30 Days or Less</button></li>
-            <li><button class="select_button" value="7561">(9/4/18) - Collaborative Design Discovery: Four Essential Techniques</button></li>
-            <li><button class="select_button" value="8706">(8/31/18) - Finding The Narrative In Numbers: Making The Most of Metrics</button></li>
 
 
-            <li><button class="select_button" value="10824">How to Avoid a Runaway Redesign(testing purposes)</button></li>
-            <li><button class="select_button" value="10715">IA lense(for test purposes)</button></li>
-
-
-
-
-
-          </ul>
-        </li>
-      </ul>
-      </nav> -->
-
-
-
-
-
-
-
-
-    <!-- <ul>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value="6829" checked>Mapping Experiences: It’s the Destination and the Journey</li>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value=4812>Sharing our Stories: Designing and Reviewing UX Portfolios</li>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value=4997>Measuring The Customer Experience Using Top Tasks</li>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value=3303>A User-centered Approach to Product Planning and Visioning</li>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value=10715>IA lense(for test purposes)</li>
-      <li><INPUT TYPE="Radio" Name="emailSelect" Value=10824>Runaway Redesign(for test purposes)</li>
-
-    </ul> -->
-
-
-
-    <select>
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
-    </select>
-
-  <div class="terms-box">
-    <p>current <strong>over half definition:</strong> if watch_type is equal to "half", "finished", or "endat%#" with the percentage being 50 or higher.</p>
-    <p>current <strong>watches definition:</strong> if watch_type is NOT equal to "start", "onwatch", or the "endat%#" is not greater than zero</p>
-    <p><strong>individual users</strong> can only be counted once for each watch type</p>
+  <div class="terms-box__option">
+    <div class="terms-box">
+      <p>current <strong>over half definition:</strong> if watch_type is equal to "half", "finished", or "endat%#" with the percentage being 50 or higher.</p>
+      <p>current <strong>watches definition:</strong> if watch_type is NOT equal to "start", "onwatch", or the "endat%#" is not greater than zero</p>
+      <p><strong>individual users</strong> can only be counted once for each watch type</p>
+    </div>
   </div>
 
 
@@ -128,7 +72,7 @@
       require('./renderer.js')
       require('./functions.js')
 
-
     </script>
+
   </body>
 </html>
